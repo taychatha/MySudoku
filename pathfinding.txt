@@ -1,0 +1,81 @@
+what is path smoothing:
+when you have a path, and you see wehther or not you can remove certain nodes that may be extraneous. If you can get from one end to another path, and there are extraneous nodes remove them.
+
+critera for eva pathfinding: 
+quality of final path, resource consumption, and whether it's a complete algo
+
+for a point in p, if you can reach point + 2 straight without piont +1, remove point +1
+
+randoom trace, head straight for goal. if obstacle, choose a random direction until free path towards goal. and ehad that way.
+
+resource consupmtion, quality of final path, and whether it's a complete algo
+
+noncomplete, easy to code, doesn't use a lot of resources, and horrible final path, inefficeint
+
+they use open and  closed lists.
+
+open lists look at potential nodes that the agent can travel
+it is popped from the list and put into the closed list after it's been evalutated whether or not it helps towards the goal.
+
+random trace, head toward goal. if obstacle occurs, randomly go clockwise or counter clockwise till a free path toward the goal is found.
+
+Open list
+closed list
+Have a start node, and use heuristics or other factors to determine quality of the path.
+
+create a start node, push onto open list. while open list is not empty, pop node from oepn list and call it current node. if currentnode takes us to the gal, break. else create new nodes for cells around current node, and push them onto open list. put currentnode onto closed list.
+
+BFS: good for getting least amount of nodes. not closest distance. complete algo. very exhaustive of resources.
+
+BFS: have a start node. push onto queue. while queue is not empty:pop node, and push into queue all neighboring unvisited nodes in ascending distance.(low to high) 
+best first is likea greedy algorithm. Uses information based on history.
+
+
+best first: uses problem specific knowledge to speed up the search process. head straight for goal. computes the distane of every node to the goal. uses the distance as a pirotiy value to determine the next node that hsould be brought out of the open list.
+
+struct of algo
+
+have a start node
+push onto open list
+while open list not empty:
+pop node and call ti current node
+if currentnode takes us to goal, break
+else:
+push all neighbors not on closed list into openlist
+push currentnode in closed sit.
+
+best first:uses heuristics to determine the best path. calcs distance from all nodes to goal. 
+
+attributes of dijsktra, resouce exhaustive complete algo, finds shortest path to every node in the graph, exhaustive
+
+A* is a path finding algorithm that determines the path based on heurstics and givne cost to order the open list
+
+final cost = given cost + heurstic cost*heuristic weight
+
+complete algo, less resouces than dijk and bfs, will alwaysat least optimal
+
+
+w1, w2
+
+f(n) = w1*d + w2*h
+
+p(x) = w1*f(x) + w2*g(X)
+
+w1 and w2 are int weights
+f(x) is the distance traveeled so far to node x.
+g(x) is heuristic guess as to distance from this node to gal
+
+A* is a path finding algo that uses heurstic costs and current distance traveled as basis to figure out the best path.
+
+w1 = 0
+w2 =1
+f(x) number of hopstravelled
+
+path smooth: in a path, for every piont, see if you can reach point +2 in a straight line. if you can, then remove point + 1.
+
+
+P(x) = w1f(x) + w2g(x)
+
+w1 and w2 are int weights
+f(x) is given cost or total distane or total nodes
+g(x) is heursitic cost
